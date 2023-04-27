@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AddEventListener</h1>
+    <p id=parrafo>
+        Con este método se puede agregar eventos a componentes html desde el código JS y sin la <br>
+        necesidad de declararlos en la etiqueta HTML. Dicho método recibe dos parámetros.
+        <ul>
+            <li>El evento que se le desea agregar al componente.</li>
+            <li>Una función que se disparará al escuchar dicho evento.</li>
+        </ul>
+    </p>
+
+    <h1 id="titulo">Manejo del DOM de JS</h1>
+    <br>
+    Nombre: <input type="text" id="nombre">
+    <br>
+    <br>
+    Apellido: <input type="text" id="apellido">
+
+    <script>    
+        document.getElementById('nombre').addEventListener('focus',cambiar);
+        document.getElementById('nombre').addEventListener('blur',regresar);
+        document.getElementById('apellido').addEventListener('focus',cambiar);
+        document.getElementById('apellido').addEventListener('blur',regresar);        
+
+        function cambiar(evento){
+            //Con evento.target obtengo el objeto campo que hizo la llamada al evento
+            let componente = evento.target;
+            componente.style.background = "yellow";            
+        }
+
+        function regresar(evento){
+            //Con evento.target obtengo el objeto campo que hizo la llamada al evento
+            let componente = evento.target;
+            componente.style.background = "white";            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="elemento_1">Ejercicio número 1 de DOM</h1>
+    <h2 id="elemento_2">Saludos</h2>
+    <h3 id="elemento_3">Elemento que será modificado</h3>
+    <p>Parrafo 1</p>
+    <p>Parrafo 2</p>
+    <p>Parrafo 3</p>
+    <p>Parrafo 4</p>
+    <p>Parrafo 5</p>
+    <p>Parrafo 6</p>
+    <script>
+
+        /***********GETELEMENTBYID***********/
+        let elemento_1 = document.getElementById("elemento_1").innerHTML;
+        let elemento_2 = document.getElementById("elemento_2").innerHTML;
+        let elemento_3 = document.getElementById("elemento_3");
+
+        console.log("el h1 tiene: ",elemento_1)
+        console.log("el h2 tiene: ",elemento_2)
+
+        let promesa = new Promise( actualizar => {
+            setTimeout(()=>{
+                actualizar(elemento_3)
+            },3000);
+        });
+
+        promesa.then(valor => {valor.innerHTML="Se actualizo vieja!!!"});
+        /************************************/
+
+        let parrafos = document.getElementsByTagName('p');
+
+        for(let i = 0;i < parrafos.length;i++){
+            setTimeout(()=>{parrafos[i].innerHTML = `Este es el parrafo número: ${i}`},3000);
+        }
+
+    </script>
+</body>
+</html>

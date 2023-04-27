@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de carreras</title>
+</head>
+<body>
+    <img id="imagen_running" src="" alt="">
+    <form id="registro_carrera">
+        Nombre: <input type="text" name="nombre_carrera" value="" id="">
+        Fecha:  <input type="text" name="fecha_carrera" id="">
+        Lugar: <input type="text" name="lugar_carrera" id="">
+    </form>
+    <button onclick='mostrarDatosCarrera()'>Mostrar</button>
+    <button onclick='mostrarImagen()'>Mostrar/Ocultar Imágen</button>
+    <div id="texto_resultado">Valores cargados</div>
+
+    <script>
+
+        document.getElementById('imagen_running').src = ''
+
+        function mostrarDatosCarrera(){            
+            let formulario = document.forms['registro_carrera'];
+            let texto = '';
+
+            for(let elemento of formulario){
+                texto += elemento.value + '<br>';                
+                //console.log(elemento.value);
+            }
+
+            document.getElementById('texto_resultado') = texto;            
+        }
+        
+        function mostrarImagen(){
+            
+            let imagen = document.getElementById('imagen_running');
+            
+        
+        }
+    </script>
+
+
+
+
+</body>
+</html>

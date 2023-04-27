@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Notar que se pueden agregar más de un evento -->
+    
+    <h1>Eventos OnFocus/OnBlur</h1>
+    <ol>Uso de eventos:  <br>
+    <li><b>OnFocus:</b>Cuando el elemento tiene el foco, por ejemplo cuando estas llenando una caja de texto</li>   
+    <li><b>OnBlur:</b>Cuando el elemento pierde el foco, cuando dejas de llenar una caja de texto</li>
+    </ol>    
+    Nombre: <input type="text" name="" id="" onfocus="cambiarFondo(this,true)" onblur="cambiarFondo(this,false)">
+    <br>
+    <script>
+        function cambiarFondo(campo,focus){
+            if(focus){
+                campo.style.background = 'yellow';
+            }else{
+                campo.style.background = "white";
+                console.log('sale por el else',focus);
+            }
+        }
+    </script>
+</body>
+</html>

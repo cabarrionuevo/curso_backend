@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Notar que se pueden agregar más de un evento <br>
+    Uso de métodos:  <br>
+    <ol>
+    <li><b>onmouseover:</b>cuando pasas el cursor por encima del componente</li>   
+    <li><b>onmouseout:</b>cuando sacas el cursor de encima del componente</li>
+    <li><b>onmouseup:</b>cuando haces click pero SIN SOLTAR</li>
+    <li><b>onmousedown:</b>cuando soltar el click y dejas posicionado el cursor por encima del componente</li></p>
+    </ol>    
+    <h1 id="titulo" onmouseover="rojo(this)" onmouseout="verde(this)" onmouseup="amarillo(this)" onmousedown="rosa(this)">Manejo DOM con JS</h1>
+    <br>
+    <script>
+        function rojo(campo){
+            campo.style.color='red';
+        }
+
+        function verde(campo){
+            campo.style.color='green';
+        }
+
+        function amarillo(campo){
+            campo.style.color='yellow';
+        }
+
+        function rosa(campo){
+            campo.style.color='pink';
+        }
+    </script>
+</body>
+</html>

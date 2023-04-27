@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Delegación de eventos ¿Que carajo es?</h1>
+    <br>
+    <p>
+        Se trata de una técnica mediante la cual es posible definir un evento para un elemento externo ,como ser un formulario,<br>
+        y que este evento se propague a componentes internos. ¿Como se logra?. Facil, ahi van los pasos:
+        <br>
+        <ol><h2>Ejemplo con un formulario que tiene dos campos tipo texto.</h2>
+            <li>Asignar id al formulario.</li>
+            <li>Desde el código JS recuperar el formulario. Puede ser utilizando el id de este si es que lo definiste</li>
+            <li>Agregar un eventlistener, por ejemplo para el evento focus.</li>
+            <li>Normalmente, agregarías 2 parámentros al addEventListener. Ahora, vas a agregar un tercero que será un campo booleando en true</li>
+            <li>Definí que va a hacer la función, obvio, si no vas a hacer foco sobre el campo y no va a hacer un carajo.</li>
+            <li>Finalmente, probalo. Ya esta. Al hacer foco sobre los campos nombre o apellido vas a llamar a la función que definiste para el evento focus.</li>
+        </ol>
+    </p>
+    <form action="" id="componente_principal">
+        nombre: <input type="text">
+        <br><br>
+        apellido:   <input type="text">
+    </form>
+
+    <script>
+
+        let formulario = document.getElementById('componente_principal');
+
+        formulario.addEventListener('focus',enfocar,true);
+        formulario.addEventListener('blur',desenfocar,true);
+
+        function enfocar(componente){
+            componente.target.style.background='green';
+        }
+
+        function desenfocar(componente){
+            componente.target.style.background='white';
+        }
+
+
+    </script>
+</body>
+</html>
