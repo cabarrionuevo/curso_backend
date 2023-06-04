@@ -18,6 +18,7 @@ const taskRoutes = require('./routes/task_routes');
 //Se incluyen rutas de registration
 const registrationRouter = require('./routes/registration_routes');
 const sessionRouter = require('./routes/session_routes');
+const categoryRoutes = require('./routes/category_routes');
 
 app.use(bodyParser.urlencoded({extended: true}));
 //se pasa como parámetro la estrategia a implementar
@@ -47,6 +48,7 @@ app.use(authUser);
 app.use(taskRoutes);
 app.use(registrationRouter);
 app.use(sessionRouter);
+app.use(categoryRoutes);
 
 app.get('/',function(req,res){
     //console.log("USUARIO LOGUEADO: ",req);

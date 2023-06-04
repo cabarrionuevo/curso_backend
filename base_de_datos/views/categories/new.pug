@@ -1,0 +1,17 @@
+html
+    head
+        title  Categorias
+    body
+        h2 Nueva Categoría
+        form(action="/categories" method="POST")
+            label(for="title") Título
+            br
+            input(type="text", name="title")
+            br
+            br
+            label(for="color") Color
+            br
+            input(type="text", name="color")            
+            br
+            br
+            input(type="submit" value="Almacenar")

@@ -1,0 +1,8 @@
+html
+    head
+        title Categorias
+    body
+        form(action=`/categories/${category.id}?_method=PUT` method="POST")
+            textarea(name="title" placeholder="Coloca aquí la categoría a modificar")= category.title
+            br
+            input(type="submit" value="Guardar")

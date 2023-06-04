@@ -10,6 +10,7 @@ module.exports = {
             if(user){
                 req.session.userId = user.id; //Si hay un usuario, guardamos el usuario autenticado en una sesion
             }
+            console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             console.log("Consulta user:****",user);
             //********************** */
             res.json(user);

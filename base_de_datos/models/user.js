@@ -44,7 +44,8 @@ module.exports = (sequelize, DataTypes) => {
       //Si el resultado de authenticatePassword es valid, retorna valid sino retorna null
       return user.authenticatePassword(password).then(valid=> {        
         if(valid) {          
-          return user;
+          console.log("valid OK@@@@@@@@@@@@@@@@@@@@@@@@@@", user);
+          return user;          
         }else{
           return null;
         }

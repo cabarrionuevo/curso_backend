@@ -16,6 +16,7 @@ module.exports = {
           model: User,
           as:'user'
         },
+        'categories'
       ]
     }).then(function(task){      
       //Opción 1
@@ -25,10 +26,10 @@ module.exports = {
     })
   },
   edit: function(req,res){
-    Task.findByPk(req.params.id).then(function(task){      
+    Task.findByPk(req.params.id).then(function(task){            
       //Opción 1
       // res.render('tasks/show',{task:task});
-      //Opción 2 usando short hand property, cuando la clave es igual al valor
+      //Opción 2 usando short hand property, cuando la clave es igual al valor      
       res.render('tasks/edit',{task});
     })
   },
@@ -54,17 +55,19 @@ module.exports = {
       })
     },
     update: function(req,res){
-      Task.update({description:req.body.description},{
-        where: {
-          id: req.params.id
-      }
-    }).then(function(response){
-      //1) retorna la cantidad de registros actualizados
-      //res.json(response)
-      //2) redirecciona
-      res.redirect('/tasks/'+req.params.id);
-    })
-    },
+      let task = Task.findByPk(req.params.id).then(task=>{
+        task.description = req.body.description;
+        task.save().then(()=>{
+          //viene una cadena separada por coma, individulizo los elementos
+          let categoryIds = req.body.categories.split(",");
+          
+          task.addCategories(categoryIds).then(()=>{
+            //Redirecciono
+            res.redirect(`/tasks/${task.id}`);
+          })
+        })
+      })      
+    },      
     new: function(req,res){
       res.render('tasks/new');
     }
